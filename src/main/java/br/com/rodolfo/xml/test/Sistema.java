@@ -16,6 +16,15 @@ public class Sistema {
     public static void main(String[] args) throws Exception {
         //Instanciando uma fFábrica de documentos
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        
+        //Informa que queremos realizar a validação do documento XML através do arquivo XSD
+        factory.setValidating(true);
+        //Pegar o arquivo de validação atrave´s do atributo 'noNamespaceSchemaLocation' no arquivo XML
+        factory.setNamespaceAware(true);
+        //Temos que especificar qual a linguagem esta sendo utilizada para a validação
+        factory.setAttribute("http://java.sun.com/xml/jaxp/properties/schemaLanguage",
+        "http://www.w3.org/2001/XMLSchema");
+
         //Construtor de documentos
         DocumentBuilder builder = factory.newDocumentBuilder();
         //Carregamento do documento na memória e atribuído à variável. O 'document' é a TAG mais externa do xml, ou seja, é a raiz. Sendo assim, a TAG raiz do xml é a <venda></venda>

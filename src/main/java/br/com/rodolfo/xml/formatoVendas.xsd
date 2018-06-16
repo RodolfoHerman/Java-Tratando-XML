@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Arquivo de validação das TAGS para o vendas.xml -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+
+    <element name="venda">
+        <!-- A TAG possui um tipo complexo (composto por uma tree de tags) -->
+        <complexType>
+            <!-- Informamos que a TAG <venda> possui uma sequencia de tags dentro dela -->
+            <sequence>
+                <element name="formaDePagamento" type="string"></element>
+                <element name="produtos">
+                    <complexType>
+                        <sequence>
+                            <!-- Quando um elemento ocorre várias na estrutura aninhada do XML é necessário informar quantas vezes aparecerá 'maxOccurs' no caso aqui é indeterminado 'unbounded' -->
+                            <element name="produto" maxOccurs="unbounded">
+                                <complexType>
+                                    <sequence>
+                                        <element name="nome" type="string"></element>
+                                        <element name="preco" type="double"></element>
+                                    </sequence>
+                                </complexType>
+                            </element>
+                        </sequence>
+                    </complexType>
+                </element>
+            </sequence>
+            <!-- Informamos que a TAG <venda> possui um atributo de nome moeda -->
+            <attribute name="moeda" type="string"></attribute>
+        </complexType>
+    </element>
+</schema>
