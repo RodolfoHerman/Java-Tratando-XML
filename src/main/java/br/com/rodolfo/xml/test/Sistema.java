@@ -10,7 +10,8 @@ import org.w3c.dom.NodeList;
 
 import br.com.rodolfo.xml.models.Produto;
 
-
+//Problema de usar o BUILDER.parse é que ele carrega todo o XML em memória, sendo assim arquivos muito grandes
+//podem não ter espaço suficiente. A técnica utilizada aqui é o DOM
 public class Sistema {
 
     public static void main(String[] args) throws Exception {
